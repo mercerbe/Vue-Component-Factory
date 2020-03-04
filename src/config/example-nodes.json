@@ -1,0 +1,25 @@
+{
+  "tagName": "div",
+  "children": [
+    {
+      "tagName": "h1",
+      "textNode": "Child Component",
+      "properties": {
+        "attrs": {
+          "style": "font-weight: 100;",
+          "class": ""
+        }
+      }
+    },
+    {
+      "tagName": "a",
+      "textNode": "Child Link",
+      "properties": {
+        "attrs": {
+          "href": "https://mercerbe.github.io/",
+          "target": "_blank"
+        }
+      }
+    }
+  ]
+}

@@ -1,16 +1,22 @@
 <script>
 import ComponentFactory from "@/componentComposer";
+import nodes from "@/config/example-nodes.json";
 export default {
   name: "App",
   components: {
     ComponentFactory
+  },
+  data() {
+    return {
+      nodes
+    };
   }
 };
 </script>
 
 <template>
   <div id="app">
-    <ComponentFactory name="Example" />
+    <ComponentFactory name="Example" :nodes="nodes" />
   </div>
 </template>
 

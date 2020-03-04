@@ -36,44 +36,30 @@ const createComponent = (dNode, h) => {
   );
 };
 
-/**
- * A sample component uses the recursive createComponent to render a DOM / List of DOM nodes
- */
-const BuildComponent = Vue.component("my-component", {
-  render: function(h) {
-    return createComponent(this.nodes, h);
-  },
-  props: {
-    nodes: {
-      type: Object,
-      required: true
-    }
-  }
-});
-
 export default {
   name: "ComponentFactory",
-  components: { BuildComponent },
   props: {
-    name: { type: String, required: true }
+    name: { type: String, required: true },
+    nodes: { type: Object, required: true }
   },
   data() {
     return {
-      nodes: {
-        tagName: "div",
-        children: [
-          {
-            tagName: "h1",
-            textNode: "Child Component",
-            properties: {}
+      component: Vue.component(this.name, {
+        render: function(h) {
+          return createComponent(this.nodes, h);
+        },
+        props: {
+          nodes: {
+            type: Object,
+            required: true
           }
-        ]
-      }
+        }
+      })
     };
   }
 };
 </script>
 
 <template>
-  <BuildComponent :nodes="nodes" />
+  <component :is="component" :nodes="nodes" />
 </template>
